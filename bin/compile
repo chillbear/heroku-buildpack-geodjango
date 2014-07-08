@@ -207,6 +207,11 @@ bpwatch start pylibmc_install
   source $BIN_DIR/steps/pylibmc
 bpwatch stop pylibmc_install
 
+# libffi support
+bpwatch start libffi_install
+  source $BIN_DIR/steps/libffi
+bpwatch stop libffi_install
+
 # GeoDjango support. (GEOS, Proj.4, GDAL)
 # See [`bin/steps/geos`](geos.html).
 # See [`bin/steps/proj4`](proj4.html).
@@ -252,7 +257,7 @@ set-env GEOS_LIBRARY_PATH $GEOS_LIBRARY_PATH
 set-env PROJ4_LIBRARY_PATH $PROJ4_LIBRARY_PATH
 set-env GDAL_LIBRARY_PATH $GDAL_LIBRARY_PATH
 set-default-env LIBRARY_PATH /app/.heroku/vendor/lib
-set-default-env LD_LIBRARY_PATH /app/.heroku/vendor/lib
+set-default-env LD_LIBRARY_PATH /app/.heroku/vendor/lib:/app/vendor/libffi-3.0/lib
 set-default-env LANG en_US.UTF-8
 set-default-env PYTHONHASHSEED random
 set-default-env PYTHONPATH /app/
